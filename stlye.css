@@ -1,0 +1,74 @@
+:root {
+    --gray: 201, 201, 201;
+    --underline-blue: #59a7c5;
+    --background: #181a1b
+}
+
+body {
+    background-color: var(--background);
+    display: flex;
+    color: white;
+}
+
+.nav {
+    margin-left: 2%;
+    width: 20%;
+}
+
+.logo {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1.5%;
+}
+
+.logo-img {
+    width: 20%;
+    height: auto;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-left: 0.5rem;
+}
+
+
+.icons>img {
+    width: 20px;
+}
+
+.menu>a {
+    display: flex;
+    align-items: center;
+    gap: 2%;
+}
+
+.menu>a>img {
+    width: 10%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    width: 150%;
+}
+
+
+.top-bar {
+    height: 5%;
+    display: flex;
+    margin-top: 1%;
+}
+
+.top-bar>img {
+    height: 30%;
+}
+
+.top-bar input{
+    height: 30%;
+}
