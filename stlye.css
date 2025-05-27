@@ -12,7 +12,7 @@ body {
 
 .nav {
     margin-left: 2%;
-    width: 20%;
+    width: 17%;
     height: 100%;
 }
 
@@ -35,22 +35,24 @@ body {
     flex-direction: column;
     margin-top: 2rem;
     margin-left: 0.5rem;
+    gap: 1rem;
 }
 
-
-.icons>img {
-    width: 20px;
-}
 
 .menu>a {
     display: flex;
     align-items: center;
-    gap: 2%;
+    gap: 5%;
 }
 
 .menu>a>img {
-    width: 10%;
+    width: 20%;
 }
+
+.menu > a > p{
+    font-size: 130%;
+}
+
 
 a {
     text-decoration: none;
@@ -61,7 +63,7 @@ a {
     display: flex;
     flex-direction: column;
     height: 97vh;
-    width: 80%;
+    width: 83%;
 }
 
 .top-bar {
@@ -146,4 +148,109 @@ a {
     height: 60%;
     width: 20%;
     border-radius: 40px;
+}
+
+.main-screen-middle{
+    height: 74%;
+    width: 100%;
+    display: flex;
+    margin-top: 1.5%;
+}
+
+.projects{
+    display: grid;
+    width: 70%;
+    height: 90%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 5fr 5fr 5fr;
+}
+
+.projects > p{
+    grid-column: 1 / -1;
+    margin: 0;
+    font-size: 1.7rem;
+    margin-bottom: 2%;
+}
+
+.card{
+    background-color: gray;
+    border-radius: 20px;
+    padding-top: 1%;
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+.right-bar{
+    width: 26%;
+    height: 90%;
+    margin-left: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-bar > p{
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 5%;
+}
+
+.announcements-bar {
+    width: 100%;
+    height: 48%;
+    background-color: gray;
+    border-radius: 20px;
+}
+
+.announcement{
+    width: 80%;
+    height: 23%;
+    padding-bottom: 3%;
+    border-bottom: 1px solid white;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 4%;
+}
+
+.announcement.last{
+    border-bottom: none;
+}
+
+.announcement > h3, p{
+    margin: 0;
+}
+
+#top-creators{
+    padding-top: 8%;
+    margin-bottom: 4%;
+}
+
+.creators-tab{
+    width: 95%;
+    height: 25.5%;
+    background-color: gray;
+    display: flex;
+    border-radius: 20px;
+}
+
+.creator{
+    width: 27.5%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 4%;
+    text-align: center;
+    font-size: 80%;
+    font-weight: bolder;
+}
+
+.creator > img{
+    height: auto;
+    width: 80%;
+    border-radius: 100%;
+}
+
+.creator > p{
+    padding-top: 8%;
 }
