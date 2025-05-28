@@ -2,7 +2,9 @@
     --gray: 201, 201, 201;
     --underline-blue: #59a7c5;
     --background: #181a1b;
-    --speed: 3s
+    --speed: 3s;
+    --speed-card: 4s;
+    --color-card: #181a1b;
 }
 
 body {
@@ -50,6 +52,7 @@ body {
 .menu>a:hover {
     transform: scale(1.2) translateX(10%);
     color: var(--underline-blue);
+    cursor: pointer;
 }
 
 
@@ -177,6 +180,8 @@ a {
     height: 100%;
     width: 100%;
     border-radius: 40px;
+    background-color: var(--background);
+    color: white;
 }
 
 .button-class {
@@ -253,20 +258,53 @@ a {
     margin-bottom: 2%;
 }
 
+
 .card {
-    background-color: gray;
+    background-color: var(--background);
     border-radius: 20px;
     padding-top: 1%;
     padding-right: 5%;
     padding-left: 5%;
     margin-right: 5%;
     margin-bottom: 5%;
+    position: relative;
+}
+
+
+.card:after, .card::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 1%;
+    border-radius: 20px;
+    animation: var(--speed-card) spin linear infinite;
+    background-image: conic-gradient(from var(--angle), var(--color-card));
+}
+
+.card::before{
+    filter: blur(0.5rem);
+    opacity: 0.5;
+}
+
+.card:hover::after{
+    --color-card: #292f56, #28345d, #263963, #233e6a, #194876, #104e7c, #005382, #005987, #005e8d, #006994, #006f96, #007498, #00799a, #00849e, #00899f, #008fa1, #0094a2, #008fa1, #00899f, #00849e, #00799a, #007498, #006f96, #006994, #005e8d, #005987, #005382, #104e7c, #194876, #233e6a, #263963, #28345d, #292f56
 }
 
 .title{
     padding-bottom: 3%;
     font-size: 140%;
     padding-top: 1%;
+}
+
+.card > a > img{
+    height: 1.5rem;
+    padding-left: 90%;
+    filter: brightness(0) saturate(100%) invert(99%) sepia(6%) saturate(230%) hue-rotate(239deg) brightness(117%) contrast(100%);
 }
 
 .right-bar {
