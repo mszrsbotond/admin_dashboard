@@ -1,7 +1,8 @@
 :root {
     --gray: 201, 201, 201;
     --underline-blue: #59a7c5;
-    --background: #181a1b
+    --background: #181a1b;
+    --speed: 3s
 }
 
 body {
@@ -35,21 +36,28 @@ body {
     flex-direction: column;
     margin-top: 2rem;
     margin-left: 0.5rem;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 
 .menu>a {
     display: flex;
     align-items: center;
-    gap: 5%;
+    gap: 3.5%;
+    transition: transform 0.2s, color 0.5s;
 }
+
+.menu>a:hover {
+    transform: scale(1.2) translateX(10%);
+    color: var(--underline-blue);
+}
+
 
 .menu>a>img {
-    width: 20%;
+    width: 15%;
 }
 
-.menu > a > p{
+.menu>a>p {
     font-size: 130%;
 }
 
@@ -82,20 +90,14 @@ a {
     align-items: center;
 }
 
-.search-bar a{
-    padding-top: 1.5%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-}
 
-.search-bar > a > img{
+.search-bar>a>img {
     margin-top: auto;
 }
 
 
 .search-bar img {
-    height: 80%;
+    height: 70%;
     border-radius: 100%;
 }
 
@@ -105,37 +107,64 @@ a {
     border-radius: 20px;
     margin-left: 3%;
     padding-left: 2%;
+    outline: none;
+    transition: transform 1s;
 }
 
-#notifications-icon{
+.search-bar:focus-within input {
+    transform: scale(1.15) translateX(3%);
+}
+
+.search-icon {
+    padding-top: 1.5%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s;
+}
+
+.search-icon:hover {
+    transform: scale(1.3) translateX(-7%);
+}
+
+.notification {
+    height: 80%;
     padding-left: 8%;
-    height: 60%;
+    transition: transform 0.5s;
 }
 
-.search-bar > p{
+.notification>img {
+    height: 90%;
+}
+
+.notification:hover {
+    transform: scale(1.3) translateX(-7%);
+}
+
+.search-bar>p {
     font-size: 120%;
     text-align: center;
     width: 15%;
     margin-left: 5%;
 }
 
-.profile-bar{
+.profile-bar {
     height: 40%;
     display: flex;
     align-items: center;
 }
 
-.profile-bar > img{
+.profile-bar>img {
     border-radius: 100%;
     height: 100%;
 }
 
-.profile-bar p{
+.profile-bar p {
     font-size: 120%;
     padding-left: 1.5%;
 }
 
-.buttons{
+.buttons {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -144,20 +173,72 @@ a {
     height: 100%;
 }
 
-.buttons > button{
-    height: 60%;
-    width: 20%;
+.button-class button{
+    height: 100%;
+    width: 100%;
     border-radius: 40px;
 }
 
-.main-screen-middle{
+.button-class {
+    height: 60%;
+    width: 20%;
+    border-radius: 40px;
+    position:relative;
+    transition: transform 0.7s;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.button-class:after, .button-class::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 2.5%;
+    border-radius: 40px;
+    animation: var(--speed) spin linear infinite;
+    background-image: conic-gradient(from var(--angle), transparent 10%, var(--underline-blue));
+}
+
+.button-class::before{
+    filter: blur(1rem);
+    opacity: 1;
+}
+
+@keyframes spin{
+    from{
+        --angle: 0deg
+    }
+
+    to{
+        --angle: 360deg
+    }
+}
+
+.button-class:hover{
+    transform: scale(1.3);
+    --speed: 7s;
+}
+
+.button-class button:hover{
+    cursor: pointer;
+}
+
+.main-screen-middle {
     height: 74%;
     width: 100%;
     display: flex;
     margin-top: 1.5%;
 }
 
-.projects{
+.projects {
     display: grid;
     width: 70%;
     height: 90%;
@@ -165,14 +246,14 @@ a {
     grid-template-rows: 1fr 5fr 5fr 5fr;
 }
 
-.projects > p{
+.projects>p {
     grid-column: 1 / -1;
     margin: 0;
     font-size: 1.7rem;
     margin-bottom: 2%;
 }
 
-.card{
+.card {
     background-color: gray;
     border-radius: 20px;
     padding-top: 1%;
@@ -182,7 +263,13 @@ a {
     margin-bottom: 5%;
 }
 
-.right-bar{
+.title{
+    padding-bottom: 3%;
+    font-size: 140%;
+    padding-top: 1%;
+}
+
+.right-bar {
     width: 26%;
     height: 90%;
     margin-left: 2%;
@@ -190,8 +277,8 @@ a {
     flex-direction: column;
 }
 
-.right-bar > p{
-    font-size: 1.5rem;
+.right-bar>p {
+    font-size: 150%;
     margin-top: 0;
     margin-bottom: 5%;
 }
@@ -203,7 +290,7 @@ a {
     border-radius: 20px;
 }
 
-.announcement{
+.announcement {
     width: 80%;
     height: 23%;
     padding-bottom: 3%;
@@ -213,44 +300,62 @@ a {
     padding-top: 4%;
 }
 
-.announcement.last{
+.announcement.last {
     border-bottom: none;
 }
 
-.announcement > h3, p{
+.announcement>h3,
+p {
     margin: 0;
 }
 
-#top-creators{
+.announcement h3 {
+    font-size: 100%;
+}
+
+.announcement p {
+    font-size: 70%;
+    padding-top: 2%;
+}
+
+
+
+#top-creators {
     padding-top: 8%;
     margin-bottom: 4%;
 }
 
-.creators-tab{
+.creators-tab {
     width: 95%;
     height: 25.5%;
     background-color: gray;
     display: flex;
     border-radius: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
-.creator{
-    width: 27.5%;
-    height: auto;
+.creator {
+    width: 25%;
     display: flex;
     flex-direction: column;
-    margin: 4%;
+    align-items: center;
+    /* horizontally center children */
     text-align: center;
-    font-size: 80%;
-    font-weight: bolder;
+    /* center text inside <p> */
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
-.creator > img{
+.creator>img {
+    width: 60%;
     height: auto;
-    width: 80%;
     border-radius: 100%;
 }
 
-.creator > p{
-    padding-top: 8%;
+.creator>p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 10%;
 }
