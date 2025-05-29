@@ -176,7 +176,7 @@ a {
     height: 100%;
 }
 
-.button-class button{
+.button-class button {
     height: 100%;
     width: 100%;
     border-radius: 40px;
@@ -188,16 +188,18 @@ a {
     height: 60%;
     width: 20%;
     border-radius: 40px;
-    position:relative;
+    position: relative;
     transition: transform 0.7s;
 }
 
-@property --angle{
+@property --angle {
     syntax: "<angle>";
     initial-value: 0deg;
     inherits: false;
 }
-.button-class:after, .button-class::before{
+
+.button-class:after,
+.button-class::before {
     content: '';
     position: absolute;
     height: 100%;
@@ -212,27 +214,27 @@ a {
     background-image: conic-gradient(from var(--angle), transparent 10%, var(--underline-blue));
 }
 
-.button-class::before{
+.button-class::before {
     filter: blur(1rem);
     opacity: 1;
 }
 
-@keyframes spin{
-    from{
+@keyframes spin {
+    from {
         --angle: 0deg
     }
 
-    to{
+    to {
         --angle: 360deg
     }
 }
 
-.button-class:hover{
+.button-class:hover {
     transform: scale(1.3);
     --speed: 7s;
 }
 
-.button-class button:hover{
+.button-class button:hover {
     cursor: pointer;
 }
 
@@ -271,7 +273,8 @@ a {
 }
 
 
-.card:after, .card::before{
+.card:after,
+.card::before {
     content: '';
     position: absolute;
     height: 100%;
@@ -286,26 +289,41 @@ a {
     background-image: conic-gradient(from var(--angle), var(--color-card));
 }
 
-.card::before{
+.card::before {
     filter: blur(0.5rem);
     opacity: 0.5;
 }
 
-.card:hover::after{
-    --color-card: #292f56, #28345d, #263963, #233e6a, #194876, #104e7c, #005382, #005987, #005e8d, #006994, #006f96, #007498, #00799a, #00849e, #00899f, #008fa1, #0094a2, #008fa1, #00899f, #00849e, #00799a, #007498, #006f96, #006994, #005e8d, #005987, #005382, #104e7c, #194876, #233e6a, #263963, #28345d, #292f56
+.card:hover::before {
+    --color-card: #292f56, #28345d, #263963, #233e6a, #194876, #104e7c, #005382, #005987, #005e8d, #006994, #006f96, #007498, #00799a, #00849e, #00899f, #008fa1, #0094a2, #008fa1, #00899f, #00849e, #00799a, #007498, #006f96, #006994, #005e8d, #005987, #005382, #104e7c, #194876, #233e6a, #263963, #28345d, #292f56;
+    transform: scale(1.1);
 }
 
-.title{
+.title {
     padding-bottom: 3%;
     font-size: 140%;
     padding-top: 1%;
 }
 
-.card > a > img{
-    height: 1.5rem;
-    padding-left: 90%;
-    filter: brightness(0) saturate(100%) invert(99%) sepia(6%) saturate(230%) hue-rotate(239deg) brightness(117%) contrast(100%);
+.card > a{
+    display: block;
+    width: 10%;
+    height: 6%;
+    padding-top: 4%;
+    padding-bottom: 2%;
+    margin-left: auto;
 }
+
+.card>a>img {
+    filter: brightness(0) saturate(100%) invert(99%) sepia(6%) saturate(230%) hue-rotate(239deg) brightness(117%) contrast(100%);
+    width: 60%;
+    transition: transform 0.7s;
+}
+
+.card > a > img:hover{
+    transform: scale(1.4) rotate(720deg);
+}
+
 
 .right-bar {
     width: 26%;
