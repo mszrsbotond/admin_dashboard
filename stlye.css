@@ -270,6 +270,7 @@ a {
     margin-right: 5%;
     margin-bottom: 5%;
     position: relative;
+    border: 1px solid rgba(200, 200, 200, 1);
 }
 
 
@@ -299,11 +300,6 @@ a {
     transform: scale(1.1);
 }
 
-.title {
-    padding-bottom: 3%;
-    font-size: 140%;
-    padding-top: 1%;
-}
 
 .card > a{
     display: block;
@@ -324,10 +320,24 @@ a {
     transform: scale(1.4) rotate(720deg);
 }
 
+.card > p{
+    font-size: 68%;
+    transition: font-size 1s;
+}
+
+.card > h1{
+    font-size: 100%;
+    transition: font-size 1s;
+}
+
+.card:hover h1{
+    font-size: 150%;
+}
+
 
 .right-bar {
     width: 26%;
-    height: 90%;
+    height: 100%;
     margin-left: 2%;
     display: flex;
     flex-direction: column;
@@ -341,19 +351,34 @@ a {
 
 .announcements-bar {
     width: 100%;
-    height: 48%;
-    background-color: gray;
+    height: 50%;
+    background-color: var(--background);
     border-radius: 20px;
+    border: 1px solid rgba(200, 200, 200, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .announcement {
-    width: 80%;
-    height: 23%;
-    padding-bottom: 3%;
+    width: 90%;
+    height: 50%;
     border-bottom: 1px solid white;
     margin-right: auto;
     margin-left: auto;
-    padding-top: 4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--background);
+    transition: transform 0.5s;
+    border-radius: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.announcement:hover{
+    transform: scale(1.2) translateX(-7%);
+    cursor: pointer;
 }
 
 .announcement.last {
@@ -370,8 +395,7 @@ p {
 }
 
 .announcement p {
-    font-size: 70%;
-    padding-top: 2%;
+    font-size: 60%;
 }
 
 
@@ -383,12 +407,14 @@ p {
 
 .creators-tab {
     width: 95%;
-    height: 25.5%;
+    height: 25%;
     background-color: gray;
     display: flex;
     border-radius: 20px;
     align-items: center;
     justify-content: center;
+    border: 1px solid rgba(200, 200, 200, 1);
+    background-color: var(--background);
 }
 
 .creator {
@@ -403,7 +429,7 @@ p {
     padding-right: 5%;
 }
 
-.creator>img {
+.creator-img {
     width: 60%;
     height: auto;
     border-radius: 100%;
